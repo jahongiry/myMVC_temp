@@ -2,6 +2,13 @@
     class Pages {
         public function __construct()
         {
-            echo "Page is loades";
+        }
+
+        public function index(){
+
+        }
+
+        public function about($id){
+            echo $id;
         }
     }
