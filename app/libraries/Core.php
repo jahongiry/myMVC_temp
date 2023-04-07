@@ -7,12 +7,15 @@
     public function __construct(){
       $url = $this->getUrl();
       //Search controller from the first value
-      if(file_exists('../app/controllers/' . ucwords($url[0] . ".php"))){
-          //If this exists set controller
-          $this->currentController = ucwords($url[0]);
-          //Unset 0 Index
-          unset($url[0]);
-      }
+        if(isset($url[0])){
+            if(file_exists('../app/controllers/' . ucwords($url[0] . ".php"))){
+                //If this exists set controller
+                $this->currentController = ucwords($url[0]);
+                //Unset 0 Index
+                unset($url[0]);
+            }
+        }
+
 
       //Require controller
       require_once '../app/controllers/' . $this->currentController . ".php";
